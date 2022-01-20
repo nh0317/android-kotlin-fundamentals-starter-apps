@@ -18,6 +18,7 @@ package com.example.android.dessertclicker
 
 import android.content.ActivityNotFoundException
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
@@ -25,6 +26,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ShareCompat
 import androidx.databinding.DataBindingUtil
 import com.example.android.dessertclicker.databinding.ActivityMainBinding
+import timber.log.Timber
 
 class MainActivity : AppCompatActivity() {
 
@@ -77,6 +79,7 @@ class MainActivity : AppCompatActivity() {
 
         // Make sure the correct dessert is showing
         binding.dessertButton.setImageResource(currentDessert.imageId)
+        Timber.i("onCreate Called")
     }
 
     /**
@@ -144,5 +147,35 @@ class MainActivity : AppCompatActivity() {
             R.id.shareMenuButton -> onShare()
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    public override fun onStart() {
+        super.onStart()
+        Timber.i("onStart Called")
+    }
+
+    public override fun onResume(){
+        super.onResume()
+        Timber.i("onResume Called")
+    }
+
+    public override fun onPause() {
+        super.onPause()
+        Timber.i("onPause Called")
+    }
+
+    public override fun onStop() {
+        super.onStop()
+        Timber.i("onStop Called")
+    }
+
+    public override fun onDestroy() {
+        super.onDestroy()
+        Timber.i("onDestroy Called")
+    }
+
+    public override fun onRestart() {
+        super.onRestart()
+        Timber.i("onRestart Called")
     }
 }
